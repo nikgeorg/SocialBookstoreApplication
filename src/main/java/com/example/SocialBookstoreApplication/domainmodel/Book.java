@@ -1,11 +1,19 @@
 package com.example.SocialBookstoreApplication.domainmodel;
-import java.util.List;
+import jakarta.persistence.*;
 
+import java.util.List;
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
+
     private String title;
+    @ManyToMany
     private List<BookAuthor> bookAuthors;
+    @ManyToOne
     private BookCategory bookCategory;
+    @ManyToMany(mappedBy = "requestedBooks")
     private List<UserProfile> requestingUsers;
 
     public int getBookId() {

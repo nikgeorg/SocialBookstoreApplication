@@ -1,6 +1,8 @@
 package com.example.SocialBookstoreApplication.domainmodel;
-import java.util.List;
+import jakarta.persistence.*;
 
+import java.util.List;
+@Entity
 public class UserProfile {
     public String getUsername() {
         return username;
@@ -49,12 +51,25 @@ public class UserProfile {
     public void setBookOffers(List<Book> bookOffers) {
         this.bookOffers = bookOffers;
     }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String username;
     private String fullName;
     private int age;
+    @ManyToMany
     private List<BookAuthor> favouriteBookAuthors;
+    @ManyToMany
     private List<BookCategory> favouriteBookCategories;
+    @ManyToMany
     private List<Book> bookOffers;
+    @ManyToMany(mappedBy = "requestingUsers")
+    private List<Book> requestedBooks;
 
+    public List<Book> getRequestedBooks() {
+        return requestedBooks;
+    }
+
+    public void setRequestedBooks(List<Book> requestedBooks) {
+        this.requestedBooks = requestedBooks;
+    }
 }

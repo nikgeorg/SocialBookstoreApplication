@@ -1,6 +1,10 @@
 package com.example.SocialBookstoreApplication.domainmodel;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
+import java.util.List;
+@Entity
 public class BookAuthor {
     public int getAuthorId() {
         return authorId;
@@ -25,8 +29,9 @@ public class BookAuthor {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-
+    @Id
     private int authorId;
     private String name;
+    @ManyToMany
     private List<Book> books;
 }

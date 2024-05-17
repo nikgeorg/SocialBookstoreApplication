@@ -1,7 +1,12 @@
 package com.example.SocialBookstoreApplication.domainmodel;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+import java.util.List;
+@Entity
 public class BookCategory {
+    @Id
     private int categoryId;
 
     public int getCategoryId() {
@@ -29,6 +34,7 @@ public class BookCategory {
     }
 
     private String name;
+    @OneToMany
     private List<Book> books;
 
 }
