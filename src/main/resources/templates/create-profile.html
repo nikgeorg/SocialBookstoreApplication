@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create Profile</title>
+</head>
+<body>
+<h1>Create Your Profile</h1>
+<form action="#" th:action="@{/create-profile}" th:object="${userProfile}" method="post">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+  </div>
+  <div>
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required />
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required />
+  </div>
+  <div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required />
+  </div>
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required />
+  </div>
+  <div>
+    <label for="favoriteBookAuthors">Favorite authors (comma-separated):</label>
+    <input type="text" id="favoriteBookAuthors" name="favoriteBookAuthors" placeholder="i.e. Agatha Christie, Oscar wilde.." required />
+  </div>
+  <div>
+    <label for="favoriteBookCategories">Favorite categories (comma-separated):</label>
+    <input type="text" id="favoriteBookCategories" name="favoriteBookCategories" placeholder="e.g., action, romance..." required />
+  </div>
+  <button type="submit">Create Profile</button>
+</form>
+</body>
+</html>

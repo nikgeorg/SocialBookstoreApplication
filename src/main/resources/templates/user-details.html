@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <h1>User <span th:text="${userProfile.fullName}"> details:</span>!</h1>
+    <p><strong>Full Name:</strong> <span th:text="${userProfile.fullName}"></span></p>
+    <p><strong>Age:</strong> <span th:text="${userProfile.age}"></span></p>
+    <p><strong>Favourite authors:</strong> <span th:text="${userProfile.getFavouriteBookAuthors()}"></span></p>
+    <p><strong>Favourite categories:</strong> <span th:text="${userProfile.getFavouriteBookCategories()}"></span></p>
+
+    <a th:href="@{/profile}">Back to Profile</a>
+</html>

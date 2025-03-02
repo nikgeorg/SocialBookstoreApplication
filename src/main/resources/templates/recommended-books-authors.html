@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Recommended Books By Authors Only</title>
+</head>
+<body>
+<h1>Recommended Books By Authors Only</h1>
+
+<div>
+  <ul>
+    <th:block th:each="book : ${recommendedBooks}">
+      <li>
+        <strong th:text="${book.title}"></strong>
+        <p th:text="${book.summary}"></p>
+        <p>Authors:
+          <span th:each="author, iterStat : ${book.bookAuthors}" th:text="${author.name + (iterStat.last ? '' : ', ')}"></span>
+        </p>
+        <p>Category: <span th:text="${book.bookCategory.name}"></span></p>
+        <p>Offered by: <span th:text="${book.getUserName()}"></span></p>
+      </li>
+    </th:block>
+  </ul>
+</div>
+<a href="/recommended-books">Back to All Recommendations</a>
+<a href="/profile">Back to Profile</a>
+</body>
+</html>

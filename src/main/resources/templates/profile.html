@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Profile Page</title>
+</head>
+<body>
+<h1>Welcome <span th:text="${userProfile.fullName}">User's Full Name</span>!</h1>
+<div>
+  <h2>Your Profile Information</h2>
+  <p><strong>Full Name:</strong> <span th:text="${userProfile.fullName}"></span></p>
+  <p><strong>Age:</strong> <span th:text="${userProfile.age}"></span></p>
+  <p><strong>Favourite authors:</strong> <span th:text="${userProfile.getFavouriteBookAuthors()}"></span></p>
+  <p><strong>Favourite categories:</strong> <span th:text="${userProfile.getFavouriteBookCategories()}"></span></p>
+  <a th:href="@{/book-offers}" class="btn btn-primary">View Book Offers</a>
+  <a th:href="@{/book-requests}" class="btn btn-primary">View Book Requests</a>
+  <a th:href="@{/search-book-offers}" class="btn btn-primary">Search for Book Offers</a>
+  <a th:href="@{/recommended-books}" class="btn btn-primary">Recommended Books</a>
+</div>
+
+<form th:action="@{/logout}" method="post">
+  <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Book Requests</title>
+</head>
+<body>
+<h1>Book Requests</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Book Title</th>
+    <th>Requester</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="request : ${requests}">
+    <td th:text="${request.title}">Book Title</td>
+    <td th:text="${request.requestingUsers}">Requester</td>
+  </tr>
+
+  </tbody>
+</table>
+<a th:href="@{/profile}">Back to Profile</a>
+</body>
+</html>

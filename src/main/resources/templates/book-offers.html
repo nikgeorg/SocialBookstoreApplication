@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Book Offers</title>
+</head>
+<body>
+<h1>Current Book Offers</h1>
+<div th:each="book : ${bookOffers}">
+  <p><strong>Title:</strong> <span th:text="${book.title}"></span></p>
+  <p><strong>Authors:</strong> <span th:text="${book.bookAuthors}"></span></p>
+  <p><strong>Category:</strong> <span th:text="${book.bookCategory}"></span></p>
+  <p><strong>Summary:</strong> <span th:text="${book.summary}"></span></p>
+  <!-- Buttons to edit and remove book -->
+  <a th:href="@{/edit-book/{id}(id=${book.bookId})}" class="btn btn-info">Edit</a>
+  <form th:action="@{/remove-book/{id}(id=${book.bookId})}" method="post">
+    <input type="submit" value="Remove" class="btn btn-danger"/>
+  </form>
+</div>
+
+<!-- Button to add a new book -->
+<a th:href="@{/add-book-offer}" class="btn btn-success">Add New Book Offer</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search for Book Offers</title>
+</head>
+<body>
+<h1>Search for Book Offers</h1>
+<form th:action="@{/search-book-offers}" method="post">
+    <label for="title">Book Title:</label>
+    <input type="text" id="title" name="title">
+
+    <label for="authors">Authors:</label>
+    <input type="text" id="authors" name="authors">
+
+    <input type="radio" id="exact" name="searchType" value="exact" checked>
+    <label for="exact">Exact search</label>
+    <input type="radio" id="approximate" name="searchType" value="approximate">
+    <label for="approximate">Approximate search</label>
+
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>

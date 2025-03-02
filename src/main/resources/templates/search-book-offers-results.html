@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Offers</title>
+</head>
+<body>
+<h1>Book Offers for "<span th:text="${searchTitle}"></span>"</h1>
+
+<div th:if="${#lists.isEmpty(books)}">
+    <p>No book offers found for the title "<span th:text="${searchTitle}"></span>".</p>
+</div>
+
+<div th:if="${not #lists.isEmpty(books)}">
+    <ul>
+        <li th:each="book : ${books}">
+            <strong>Title:</strong> <span th:text="${book.title}"></span><br>
+            <strong>Summary:</strong> <span th:text="${book.summary}"></span><br>
+            <strong>Authors:</strong>
+            <span th:each="author : ${book.bookAuthors}">
+                <span th:text="${author.name}"></span>
+            </span><br>
+            <strong>Category:</strong> <span th:text="${book.bookCategory.name}"></span><br>
+            <strong>Offered by:</strong> <a th:href="@{/user-details/{username}(username=${book.getUserName()})}" th:text="${book.getUserName()}"></a><br><br>
+            <form th:action="@{/add-book-request}" method="post">
+                <input type="hidden" name="title" th:value="${book.title}" />
+                <input type="hidden" name="requestingUsername" th:value="${username}"/>
+                <button type="submit">Request book</button>
+            </form>
+
+        </li>
+    </ul>
+</div>
+
+<a th:href="@{/profile}">Back to Profile</a>
+
+</body>
+</html>

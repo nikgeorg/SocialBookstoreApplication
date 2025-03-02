@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Book Request</title>
+</head>
+<body>
+<h1>Add a Book Request</h1>
+<form th:action="@{/add-book-request}" method="post">
+  <div>
+    <p><strong>Title:</strong> <span th:text="${book.title}"></span></p>
+  </div>
+  <div>
+
+  </div>
+  <div>
+    <input type="submit" value="Add Book Request" />
+  </div>
+</form>
+</body>
+</html>
